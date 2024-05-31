@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, PermissionsAndroid, Alert, Platform } from 'react-native';
 import SmsAndroid from 'react-native-get-sms-android';
 
-const App = () => {
+const SmsReq = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -84,7 +84,7 @@ const App = () => {
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
             <View style={{ borderBottomWidth: 1, paddingVertical: 10 }}>
-              <Text>From: {item.address}</Text>
+              <Text style={{color:'white'}}>From: {item.address}</Text>
               <Text>Body: {item.body}</Text>
             </View>
           )}
@@ -96,4 +96,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default SmsReq;
