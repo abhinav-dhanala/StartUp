@@ -2,25 +2,30 @@ import React from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { Image } from 'react-native';
 
 const LoginPage: React.FC = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
   return (
     <View style={styles.background}>
       <View style={styles.container}>
+
+        <View style={{alignItems: 'center'}}>
+          <Image source={require('../components/assets/login.png')} style={{width:360,height:200,marginTop:10}}>
+          </Image>
+        </View>
+
         <Text style={styles.title}>Login/Signup</Text>
-        <TextInput placeholder="Mobile Number" style={styles.input} placeholderTextColor={'gray'} keyboardType='numeric' />
-        {/* <TextInput placeholder="Password" secureTextEntry={true} style={styles.input} placeholderTextColor={'gray'}/> */}
+        <TextInput 
+          placeholder="Mobile Number" 
+          style={styles.input} 
+          placeholderTextColor={'gray'} 
+          keyboardType='numeric' 
+        />
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Get OTP</Text>
         </TouchableOpacity>
-        {/* <TouchableOpacity
-          style={[styles.button, { backgroundColor: '#28a745', marginTop: 10 }]}
-          onPress={() => navigation.navigate('SignUp')}
-        >
-          <Text style={styles.buttonText}>Sign Up</Text>
-        </TouchableOpacity> */}
       </View>
     </View>
   );
@@ -29,26 +34,23 @@ const LoginPage: React.FC = () => {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    // justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
     height: '100%',
     backgroundColor: 'rgb(0, 0, 0)',
   },
   container: {
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // marginTop:20,
     backgroundColor: 'rgba(255, 255, 255, 0)',
     padding: 20,
     borderRadius: 10,
     width: '100%',
   },
   title: {
+    marginTop:20,
     fontSize: 20,
     marginBottom: 20,
     color: 'rgb(255,255,255)',
-    fontWeight:'500'
+    fontWeight: '500'
   },
   input: {
     width: '100%',
@@ -56,7 +58,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 10,
     borderRadius: 5,
-    color:'black'
+    color: 'black'
   },
   button: {
     alignItems: 'center',

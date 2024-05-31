@@ -4,7 +4,7 @@ const SplashScreen: React.FC = () => {
     return (
         <View style={styles.container}>
             <View >
-                <Image source={require('./assets/img.png')} style={styles.logo}></Image>
+                <Image source={require('../components/assets/img1.png')} style={styles.logo}></Image>
             </View>
         </View>
     );

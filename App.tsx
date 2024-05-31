@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {enableScreens} from 'react-native-screens';
-import LoginPage from './components/LoginPage';
-import SignUpPage from './components/SignUpPage';
+import LoginPage from './screens/LoginPage';
+import SignUpPage from './screens/SignUpPage';
 import {Image, StyleSheet, Text, Vibration, View, useAnimatedValue} from 'react-native';
 import SmsReq from './components/SmsReq';
-import SplashScreen from './components/SplashScreen';
+import SplashScreen from './screens/SplashScreen';
 
 enableScreens();
 
@@ -34,7 +34,7 @@ const App: React.FC = () => {
                 title: 'Sign Up',
                 headerTitle:()=>(
                   <>
-                  <Image source={require('./components/assets/img.png')} style={styles.img}></Image>
+                  <Image source={require('./components/assets/img1.png')} style={styles.img}></Image>
                   <Text style={styles.text}> FinCraft</Text>
                   </>
                 ),

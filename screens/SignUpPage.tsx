@@ -5,7 +5,7 @@ import { View, Text, StyleSheet, ImageBackground, TextInput, TouchableOpacity } 
 
 const SignUpPage: React.FC = () => {
   return (
-    <ImageBackground source={require('./assets/img.png')} style={styles.background}>
+    <ImageBackground source={require('../components/assets/img1.png')} style={styles.background}>
       <View style={styles.container}>
         <Text style={styles.title}>Create an Account</Text>
         <TextInput placeholder="Name" style={styles.input} />
