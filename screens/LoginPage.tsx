@@ -15,7 +15,6 @@ const LoginPage: React.FC = () => {
           <Image source={require('../components/assets/login.png')} style={{width:360,height:200,marginTop:10}}>
           </Image>
         </View>
-
         <Text style={styles.title}>Login/Signup</Text>
         <TextInput 
           placeholder="Mobile Number" 
@@ -23,7 +22,7 @@ const LoginPage: React.FC = () => {
           placeholderTextColor={'gray'} 
           keyboardType='numeric' 
         />
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('MobileVerification')}>
           <Text style={styles.buttonText}>Get OTP</Text>
         </TouchableOpacity>
       </View>
@@ -40,9 +39,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(0, 0, 0)',
   },
   container: {
-    backgroundColor: 'rgba(255, 255, 255, 0)',
+    // backgroundColor: 'rgba(255, 255, 255, 0)',
     padding: 20,
-    borderRadius: 10,
+    // borderRadius: 10,
     width: '100%',
   },
   title: {

@@ -7,6 +7,7 @@ import SignUpPage from './screens/SignUpPage';
 import {Image, StyleSheet, Text, Vibration, View, useAnimatedValue} from 'react-native';
 import SmsReq from './components/SmsReq';
 import SplashScreen from './screens/SplashScreen';
+import MobileVerification from './screens/MobileVerification';
 
 enableScreens();
 
@@ -48,8 +49,8 @@ const App: React.FC = () => {
               }}
             />
             <Stack.Screen
-              name="SignUp"
-              component={SignUpPage}
+              name="MobileVerification"
+              component={MobileVerification}
               options={{headerShown: false}} // Hide header for SignUpPage
             />
           </Stack.Navigator>
@@ -68,6 +69,10 @@ const styles= StyleSheet.create({
     width:40
   },
   text:{
+    fontFamily:'',
+    // color:'#26d8fc',
+    // color:'#2e9675',
+    color:'white',
     fontWeight:'bold', 
     fontSize:24
   },
