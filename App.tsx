@@ -8,6 +8,9 @@ import {Image, StyleSheet, Text, Vibration, View, useAnimatedValue} from 'react-
 import SmsReq from './components/SmsReq';
 import SplashScreen from './screens/SplashScreen';
 import MobileVerification from './screens/MobileVerification';
+import Question1 from './screens/Questions/Question1';
+import Question2 from './screens/Questions/Question2';
+import Home from './screens/Home';
 
 enableScreens();
 
@@ -51,7 +54,22 @@ const App: React.FC = () => {
             <Stack.Screen
               name="MobileVerification"
               component={MobileVerification}
-              options={{headerShown: false}} // Hide header for SignUpPage
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+            name="Question1"
+            component={Question1}
+            options={{headerShown:false}}
+            />
+            <Stack.Screen
+            name="Question2"
+            component={Question2}
+            options={{headerShown:false}}
+            />
+            <Stack.Screen
+            name="Home1"
+            component={Home}
+            options={{headerShown:false}}
             />
           </Stack.Navigator>
         </NavigationContainer>
