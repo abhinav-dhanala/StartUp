@@ -4,7 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {enableScreens} from 'react-native-screens';
 import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
-import {Vibration, View, useAnimatedValue} from 'react-native';
+import {Image, StyleSheet, Text, Vibration, View, useAnimatedValue} from 'react-native';
 import SmsReq from './components/SmsReq';
 import SplashScreen from './components/SplashScreen';
 
@@ -19,7 +19,7 @@ const App: React.FC = () => {
       setisSplash(false);
     },3000);
   });
-  
+
   return (
     <>
       {
@@ -29,7 +29,23 @@ const App: React.FC = () => {
             <Stack.Screen
               name="Home"
               component={LoginPage}
-              options={{headerShown: false}} // Hide header for LoginPage
+              // options={{headerShown: false}}
+              options={{
+                title: 'Sign Up',
+                headerTitle:()=>(
+                  <>
+                  <Image source={require('./components/assets/img.png')} style={styles.img}></Image>
+                  <Text style={styles.text}> FinCraft</Text>
+                  </>
+                ),
+                headerStyle: {
+                  backgroundColor: 'black', // header background colour
+                },
+                headerTintColor: 'green', // header font colour
+                headerTitleStyle:{
+                  fontSize:25
+                }
+              }}
             />
             <Stack.Screen
               name="SignUp"
@@ -46,4 +62,14 @@ const App: React.FC = () => {
   );
 };
 
+const styles= StyleSheet.create({
+  img:{
+    height:40,
+    width:40
+  },
+  text:{
+    fontWeight:'bold', 
+    fontSize:24
+  },
+})
 export default App;

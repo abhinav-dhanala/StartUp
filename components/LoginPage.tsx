@@ -9,8 +9,8 @@ const LoginPage: React.FC = () => {
   return (
     <View style={styles.background}>
       <View style={styles.container}>
-        <Text style={styles.title}>Enter Your Mobile Number</Text>
-        <TextInput placeholder="Mobiule Number" style={styles.input} placeholderTextColor={'gray'} keyboardType='numeric' />
+        <Text style={styles.title}>Login/Signup</Text>
+        <TextInput placeholder="Mobile Number" style={styles.input} placeholderTextColor={'gray'} keyboardType='numeric' />
         {/* <TextInput placeholder="Password" secureTextEntry={true} style={styles.input} placeholderTextColor={'gray'}/> */}
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Get OTP</Text>
@@ -38,16 +38,17 @@ const styles = StyleSheet.create({
   container: {
     // justifyContent: 'center',
     // alignItems: 'center',
-    marginTop:20,
+    // marginTop:20,
     backgroundColor: 'rgba(255, 255, 255, 0)',
     padding: 20,
     borderRadius: 10,
     width: '100%',
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     marginBottom: 20,
     color: 'rgb(255,255,255)',
+    fontWeight:'500'
   },
   input: {
     width: '100%',
