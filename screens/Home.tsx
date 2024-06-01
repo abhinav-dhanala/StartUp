@@ -21,11 +21,17 @@ const HomePage = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
           <TouchableOpacity style={styles.iconButton} onPress={() => console.log('IconButton pressed ...')}>
             <Icon name="menu" size={31} color="#FFFFFF" />
           </TouchableOpacity>
+
+          <View style={styles.titleContainer}>
+          <Text style={styles.title}>Hello!</Text>
+          <Text style={styles.title2}>Banda Aakash</Text>
+          </View>
+
           <TouchableOpacity style={styles.profilePicContainer} onPress={() => navigation.navigate('MY_profilePage')}>
             <Image
               style={styles.profilePic}
@@ -75,6 +81,7 @@ const HomePage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // backgroundColor: 'rgba(255, 255, 255, 0.8)',
     backgroundColor: 'black',
   },
   header: {
@@ -86,6 +93,23 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderRadius: 30,
     padding: 10,
+  },
+
+  titleContainer: {
+    flex: 1,
+    marginLeft: 10,
+  },
+  title: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: '400',
+    marginTop: 0,
+  },
+  title2: {
+    color: 'white',
+    fontSize: 25,
+    fontWeight: '600',
+    marginTop: 0,
   },
   profilePicContainer: {
     width: 40,
@@ -99,13 +123,17 @@ const styles = StyleSheet.create({
   },
   balanceContainer: {
     // backgroundColor: 'rbga(0,0,0,1)',
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    marginTop:80,
+    backgroundColor: '#1c1e1e',
     borderRadius: 8,
     padding: 16,
     margin: 16,
   },
   label: {
-    color: '#98FFFFFF',
+    color: '#0075A3',
+    // color: '#64D2FF',
+    // color:'#3A3A3C',
+    // color: 'gold',
     fontSize: 12,
   },
   balance: {
