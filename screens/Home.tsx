@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -7,8 +7,8 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const HomePage = () => {
@@ -42,11 +42,10 @@ const HomePage = () => {
         </View>
 
         <View style={styles.balanceContainer}>
-          <Text style={styles.label}>Available Balance</Text>
-          <Text style={styles.balance}>₹2423</Text>
           <Text style={styles.label}>Invested Amount</Text>
+          <Text style={styles.balance}>₹2423</Text>
+          <Text style={styles.label}>Current Amount</Text>
           <Text style={styles.investedAmount}>₹12,321</Text>
-          <Text style={styles.label}>Growth</Text>
         </View>
 
         <Text style={styles.headings}>Invest Manually</Text>
@@ -63,7 +62,7 @@ const HomePage = () => {
             <Text style={styles.font}>Gold</Text>
             <Text>
               Start investing in{' '}
-              <Text style={{fontWeight: 'bold', color: 'gold'}}>Gold</Text> with
+              <Text style={{ fontWeight: 'bold', color: 'gold' }}>Gold</Text> with
               a minimum of ₹10
             </Text>
           </TouchableOpacity>
@@ -79,7 +78,7 @@ const HomePage = () => {
             <Text style={styles.font}>Mutual Funds</Text>
             <Text>
               Start investing in{' '}
-              <Text style={{fontWeight: 'bold', color: 'gold'}}>
+              <Text style={{ fontWeight: 'bold', color: 'gold' }}>
                 Mutual Funds
               </Text>{' '}
               with a minimum of ₹10
@@ -98,7 +97,7 @@ const HomePage = () => {
             <Image
               source={require('../components/assets/gold.png')}
               style={styles.image}></Image>
-            <Text style={styles.font2}> Expenses</Text>
+            <Text style={styles.font2}>Expenses</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -124,13 +123,62 @@ const HomePage = () => {
           </TouchableOpacity>
         </View>
 
-        <View style={styles.bcontainer}>
+        <Text style={styles.headings}>Setup Automatic Savings</Text>
+
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.horizontalScrollView}>
+          <View style={styles.horizontalContainer}>
+            <TouchableOpacity
+              style={styles.statBox3}
+              onPress={() => {
+                console.log('RoundOff');
+              }}>
+              <Image
+                source={require('../components/assets/gold.png')}
+                style={styles.image}></Image>
+              <Text style={styles.font3}>Round Off</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.statBox3}
+              onPress={() => {
+                console.log('Daily');
+              }}>
+              <Image
+                source={require('../components/assets/gold.png')}
+                style={styles.image}></Image>
+              <Text style={styles.font3}>Daily Savings</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.statBox3}
+              onPress={() => {
+                console.log('Weekly');
+              }}>
+              <Image
+                source={require('../components/assets/money.png')}
+                style={styles.image}></Image>
+              <Text style={styles.font3}>Weekly Savings</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.statBox3}
+              onPress={() => {
+                console.log('Monthly');
+              }}>
+              <Image
+                source={require('../components/assets/money.png')}
+                style={styles.image}></Image>
+              <Text style={styles.font3}>Monthly Savings</Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+        {/* <View style={styles.bcontainer}>
           <TouchableOpacity
             onPress={() => navigation.navigate('SmsReq')}
             style={styles.button}>
             <Text style={{color: 'white'}}>Read SMS</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </ScrollView>
     </View>
   );
@@ -139,21 +187,13 @@ const HomePage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    backgroundColor: '#121313',
+    backgroundColor: 'black',
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     margin: 15,
   },
-
-  // iconButton: {
-  //   backgroundColor: 'transparent',
-  //   borderRadius: 30,
-  //   padding: 10,
-  // },
-
   titleContainer: {
     flex: 1,
     marginLeft: 10,
@@ -182,67 +222,65 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   balanceContainer: {
-    // backgroundColor: 'rbga(0,0,0,1)',
-    backgroundColor: '#1c1e1e',
-    // backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: '#121313',
+    borderWidth: 1,
     marginTop: 20,
     borderRadius: 8,
     padding: 20,
     margin: 16,
   },
   label: {
-    // color: '#0075A3',
-    color: '#1CC099',
-    // color: '#64D2FF',
-    // color:'#3A3A3C',
-    // color: 'gold',
-    fontSize: 15,
-    paddingBottom: 2,
+    fontSize: 18,
+    marginTop: 10,
+    fontWeight: '300',
+    paddingBottom: 10,
   },
   balance: {
     fontSize: 32,
     color: '#FFFFFF',
-    // color: '#CF553A',  //red
   },
   investedAmount: {
     fontSize: 32,
-    // color:'gold'
-    // color: '#02fff3', //teal
-    color: '#1CC099', //grgreen
+    color: '#1CC099',
   },
   statsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     margin: 16,
   },
+  horizontalContainer: {
+    flexDirection: 'row',
+    paddingHorizontal: 10,
+  },
+  horizontalScrollView: {
+    marginTop: 20,
+  },
   statBox: {
     width: '48%',
-    // backgroundColor: '#2E2E2E',
-    // backgroundColor: '#0D0D0D',
-    backgroundColor: 'rgba(255, 255, 255, 0.1)', // Yellow with 0% opacity
-    // borderColor:'white',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     borderWidth: 1,
     borderRadius: 10,
     padding: 15,
-    // alignItems: 'center',
   },
   statBox2: {
     width: '32%',
-    // backgroundColor: '#2E2E2E',
-    // backgroundColor: '#0D0D0D',
-    backgroundColor: 'rgba(255, 255, 255, 0.1)', // Yellow with 0% opacity
-    // borderColor:'white',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     borderWidth: 1,
     borderRadius: 10,
     padding: 10,
-    justifyContent:'center',
-    alignItems:'center',
-    // alignItems: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  statLabel: {
-    color: '#FFFFFF',
-    marginTop: 8,
-    fontSize: 15,
+  statBox3: {
+    width: 120,
+    height:120,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 5,
   },
   image: {
     width: 50,
@@ -257,6 +295,12 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 15,
     fontWeight: '500',
+  },
+  font3: {
+    color: 'white',
+    fontSize: 13,
+    fontWeight: '500',
+    textAlign: 'center',
   },
   headings: {
     color: 'white',
