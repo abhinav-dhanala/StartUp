@@ -14,7 +14,7 @@ const MobileVerification: React.FC = () => {
   const [otp, setOtp] = useState('');
 
   const handleVerifyOtp = () => {
-    navigation.navigate('Question1')
+    navigation.navigate('DetailsPg')
     console.log('OTP entered:', otp);
   };
 

@@ -11,6 +11,7 @@ import MobileVerification from './screens/MobileVerification';
 import Question1 from './screens/Questions/Question1';
 import Question2 from './screens/Questions/Question2';
 import Home from './screens/Home';
+import Details from './screens/Details';
 
 enableScreens();
 
@@ -69,6 +70,11 @@ const App: React.FC = () => {
             <Stack.Screen
             name="Home1"
             component={Home}
+            options={{headerShown:false}}
+            />
+            <Stack.Screen
+            name="DetailsPg"
+            component={Details}
             options={{headerShown:false}}
             />
           </Stack.Navigator>
