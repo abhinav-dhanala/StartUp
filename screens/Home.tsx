@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -23,21 +23,25 @@ const HomePage = () => {
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
-          <TouchableOpacity style={styles.iconButton} onPress={() => console.log('IconButton pressed ...')}>
+          {/* <TouchableOpacity style={styles.iconButton} onPress={() => console.log('IconButton pressed ...')}>
             <Icon name="menu" size={31} color="#FFFFFF" />
+          </TouchableOpacity> */}
+          <TouchableOpacity
+            style={styles.profilePicContainer}
+            onPress={() => navigation.navigate('ProfilePage')}>
+            <Image
+              style={styles.profilePic}
+              source={{
+                uri: 'https://images.unsplash.com/photo-1520626337972-ebf863448db6',
+              }}
+            />
           </TouchableOpacity>
 
           <View style={styles.titleContainer}>
-          <Text style={styles.title}>Hello!</Text>
-          <Text style={styles.title2}>Banda Aakash</Text>
+            <Text style={styles.title}>
+              Hello, <Text style={styles.title2}>Banda Aakash</Text>
+            </Text>
           </View>
-
-          <TouchableOpacity style={styles.profilePicContainer} onPress={() => navigation.navigate('MY_profilePage')}>
-            <Image
-              style={styles.profilePic}
-              source={{ uri: 'https://images.unsplash.com/photo-1520626337972-ebf863448db6' }}
-            />
-          </TouchableOpacity>
         </View>
         <View style={styles.balanceContainer}>
           <Text style={styles.label}>Available Balance</Text>
@@ -58,7 +62,9 @@ const HomePage = () => {
             <Icon name="notifications" size={24} color="#FFFFFF" />
             <Text style={styles.alertLabel}>Fraud Alert</Text>
           </View>
-          <Text style={styles.alertDescription}>We noticed a small charge that...</Text>
+          <Text style={styles.alertDescription}>
+            We noticed a small charge that...
+          </Text>
           <TouchableOpacity>
             <Text style={styles.viewNow}>View Now</Text>
           </TouchableOpacity>
@@ -87,17 +93,19 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 16,
+    margin: 15,
   },
-  iconButton: {
-    backgroundColor: 'transparent',
-    borderRadius: 30,
-    padding: 10,
-  },
+
+  // iconButton: {
+  //   backgroundColor: 'transparent',
+  //   borderRadius: 30,
+  //   padding: 10,
+  // },
 
   titleContainer: {
     flex: 1,
     marginLeft: 10,
+    justifyContent:'center'
   },
   title: {
     color: 'white',
@@ -107,13 +115,13 @@ const styles = StyleSheet.create({
   },
   title2: {
     color: 'white',
-    fontSize: 25,
+    fontSize: 18,
     fontWeight: '600',
     marginTop: 0,
   },
   profilePicContainer: {
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 30,
     borderRadius: 20,
     overflow: 'hidden',
   },
@@ -123,26 +131,31 @@ const styles = StyleSheet.create({
   },
   balanceContainer: {
     // backgroundColor: 'rbga(0,0,0,1)',
-    marginTop:80,
+    marginTop: 20,
     backgroundColor: '#1c1e1e',
     borderRadius: 8,
-    padding: 16,
+    padding: 20,
     margin: 16,
   },
   label: {
     color: '#0075A3',
+    // color: '#1CC099',
     // color: '#64D2FF',
     // color:'#3A3A3C',
     // color: 'gold',
-    fontSize: 12,
+    fontSize: 15,
+    paddingBottom:2
   },
   balance: {
     fontSize: 32,
     color: '#FFFFFF',
+    // color: '#CF553A',  //red
   },
   investedAmount: {
     fontSize: 32,
-    color: '#02fff3',
+    // color:'gold'
+    color: '#02fff3', //teal
+    // color: '#1CC099', //grgreen
   },
   growthContainer: {
     flexDirection: 'row',

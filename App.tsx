@@ -12,6 +12,7 @@ import Question1 from './screens/Questions/Question1';
 import Question2 from './screens/Questions/Question2';
 import Home from './screens/Home';
 import Details from './screens/Details';
+import ProfilePage from './screens/ProfilePage';
 
 enableScreens();
 
@@ -75,6 +76,11 @@ const App: React.FC = () => {
             <Stack.Screen
             name="DetailsPg"
             component={Details}
+            options={{headerShown:false}}
+            />
+            <Stack.Screen
+            name="ProfilePage"
+            component={ProfilePage}
             options={{headerShown:false}}
             />
           </Stack.Navigator>
