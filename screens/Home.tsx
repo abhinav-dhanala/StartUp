@@ -23,9 +23,6 @@ const HomePage = () => {
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
-          {/* <TouchableOpacity style={styles.iconButton} onPress={() => console.log('IconButton pressed ...')}>
-            <Icon name="menu" size={31} color="#FFFFFF" />
-          </TouchableOpacity> */}
           <TouchableOpacity
             style={styles.profilePicContainer}
             onPress={() => navigation.navigate('ProfilePage')}>
@@ -43,41 +40,96 @@ const HomePage = () => {
             </Text>
           </View>
         </View>
+
         <View style={styles.balanceContainer}>
           <Text style={styles.label}>Available Balance</Text>
           <Text style={styles.balance}>₹2423</Text>
           <Text style={styles.label}>Invested Amount</Text>
           <Text style={styles.investedAmount}>₹12,321</Text>
           <Text style={styles.label}>Growth</Text>
-          <View style={styles.growthContainer}>
-            <Text style={styles.growth}>4.5%</Text>
-            <Icon name="trending-up" size={24} color="#32CD32" />
-          </View>
         </View>
-        <View style={styles.alertContainer}>
-          <View style={styles.alertBox}>
-            <Text style={styles.alertText}>1 New Alert</Text>
-          </View>
-          <View style={styles.alertRow}>
-            <Icon name="notifications" size={24} color="#FFFFFF" />
-            <Text style={styles.alertLabel}>Fraud Alert</Text>
-          </View>
-          <Text style={styles.alertDescription}>
-            We noticed a small charge that...
-          </Text>
-          <TouchableOpacity>
-            <Text style={styles.viewNow}>View Now</Text>
+
+        <Text style={styles.headings}>Invest Manually</Text>
+
+        <View style={styles.statsContainer}>
+          <TouchableOpacity
+            style={styles.statBox}
+            onPress={() => {
+              console.log('Gold');
+            }}>
+            <Image
+              source={require('../components/assets/gold.png')}
+              style={styles.image}></Image>
+            <Text style={styles.font}>Gold</Text>
+            <Text>
+              Start investing in{' '}
+              <Text style={{fontWeight: 'bold', color: 'gold'}}>Gold</Text> with
+              a minimum of ₹10
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.statBox}
+            onPress={() => {
+              console.log('Mutual Funds');
+            }}>
+            <Image
+              source={require('../components/assets/money.png')}
+              style={styles.image}></Image>
+            <Text style={styles.font}>Mutual Funds</Text>
+            <Text>
+              Start investing in{' '}
+              <Text style={{fontWeight: 'bold', color: 'gold'}}>
+                Mutual Funds
+              </Text>{' '}
+              with a minimum of ₹10
+            </Text>
           </TouchableOpacity>
         </View>
+
+        <Text style={styles.headings}>Quick Services</Text>
+
         <View style={styles.statsContainer}>
-          <View style={styles.statBox}>
-            <Icon name="savings" size={36} color="#FFFFFF" />
-            <Text style={styles.statLabel}>Expenses</Text>
-          </View>
-          <View style={styles.statBox}>
-            <Icon name="group" size={36} color="#FFFFFF" />
-            <Text style={styles.statLabel}>Group Savings</Text>
-          </View>
+          <TouchableOpacity
+            style={styles.statBox2}
+            onPress={() => {
+              console.log('Expenses');
+            }}>
+            <Image
+              source={require('../components/assets/gold.png')}
+              style={styles.image}></Image>
+            <Text style={styles.font2}> Expenses</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.statBox2}
+            onPress={() => {
+              console.log('Gold');
+            }}>
+            <Image
+              source={require('../components/assets/gold.png')}
+              style={styles.image}></Image>
+            <Text style={styles.font2}>Gold</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.statBox2}
+            onPress={() => {
+              console.log('Mutual Funds');
+            }}>
+            <Image
+              source={require('../components/assets/money.png')}
+              style={styles.image}></Image>
+            <Text style={styles.font2}>Mutual Funds</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.bcontainer}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('SmsReq')}
+            style={styles.button}>
+            <Text style={{color: 'white'}}>Read SMS</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </View>
@@ -88,7 +140,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    backgroundColor: 'black',
+    backgroundColor: '#121313',
   },
   header: {
     flexDirection: 'row',
@@ -105,7 +157,7 @@ const styles = StyleSheet.create({
   titleContainer: {
     flex: 1,
     marginLeft: 10,
-    justifyContent:'center'
+    justifyContent: 'center',
   },
   title: {
     color: 'white',
@@ -131,20 +183,21 @@ const styles = StyleSheet.create({
   },
   balanceContainer: {
     // backgroundColor: 'rbga(0,0,0,1)',
-    marginTop: 20,
     backgroundColor: '#1c1e1e',
+    // backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    marginTop: 20,
     borderRadius: 8,
     padding: 20,
     margin: 16,
   },
   label: {
-    color: '#0075A3',
-    // color: '#1CC099',
+    // color: '#0075A3',
+    color: '#1CC099',
     // color: '#64D2FF',
     // color:'#3A3A3C',
     // color: 'gold',
     fontSize: 15,
-    paddingBottom:2
+    paddingBottom: 2,
   },
   balance: {
     fontSize: 32,
@@ -154,48 +207,8 @@ const styles = StyleSheet.create({
   investedAmount: {
     fontSize: 32,
     // color:'gold'
-    color: '#02fff3', //teal
-    // color: '#1CC099', //grgreen
-  },
-  growthContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  growth: {
-    fontSize: 16,
-    color: '#32CD32',
-  },
-  alertContainer: {
-    backgroundColor: '#1E1E1E',
-    borderRadius: 8,
-    padding: 16,
-    margin: 16,
-  },
-  alertBox: {
-    backgroundColor: '#2E2E2E',
-    borderRadius: 8,
-    padding: 16,
-  },
-  alertText: {
-    color: '#32CD32',
-  },
-  alertRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 16,
-  },
-  alertLabel: {
-    color: '#FFFFFF',
-    marginLeft: 8,
-  },
-  alertDescription: {
-    color: '#98FFFFFF',
-    fontSize: 12,
-    padding: 16,
-  },
-  viewNow: {
-    color: '#32CD32',
-    padding: 16,
+    // color: '#02fff3', //teal
+    color: '#1CC099', //grgreen
   },
   statsContainer: {
     flexDirection: 'row',
@@ -204,14 +217,64 @@ const styles = StyleSheet.create({
   },
   statBox: {
     width: '48%',
-    backgroundColor: '#2E2E2E',
-    borderRadius: 8,
-    padding: 16,
-    alignItems: 'center',
+    // backgroundColor: '#2E2E2E',
+    // backgroundColor: '#0D0D0D',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)', // Yellow with 0% opacity
+    // borderColor:'white',
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 15,
+    // alignItems: 'center',
+  },
+  statBox2: {
+    width: '32%',
+    // backgroundColor: '#2E2E2E',
+    // backgroundColor: '#0D0D0D',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)', // Yellow with 0% opacity
+    // borderColor:'white',
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10,
+    justifyContent:'center',
+    alignItems:'center',
+    // alignItems: 'center',
   },
   statLabel: {
     color: '#FFFFFF',
     marginTop: 8,
+    fontSize: 15,
+  },
+  image: {
+    width: 50,
+    height: 50,
+  },
+  font: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: '500',
+  },
+  font2: {
+    color: 'white',
+    fontSize: 15,
+    fontWeight: '500',
+  },
+  headings: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: '500',
+    marginLeft: 20,
+  },
+  button: {
+    width: '100%',
+    backgroundColor: '#0080ff',
+    padding: 15,
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  bcontainer: {
+    margin: 20,
   },
 });
 

@@ -4,7 +4,7 @@ import SmsAndroid from 'react-native-get-sms-android';
 
 const SmsReq = () => {
   const [messages, setMessages] = useState([]);
-
+  const [amt,setAmt]=useState([])
   useEffect(() => {
     const checkAndRequestPermissions = async () => {
       if (Platform.OS === 'android') {
@@ -55,28 +55,41 @@ const SmsReq = () => {
     SmsAndroid.list(
       JSON.stringify({
         box: 'inbox',
-        maxCount: 1, // Retrieve only one message (the latest one)
+        maxCount: 5, // Increase the maxCount if you want to read more messages
       }),
       (fail) => {
         console.error('Failed to get messages:', fail);
       },
       (count, smsList) => {
-        console.log('SMS List:', smsList);
+        // console.log('SMS List:', smsList);
         const parsedSmsList = JSON.parse(smsList);
-        if (parsedSmsList.length > 0) {
-          const latestMessage = parsedSmsList[0]; // Get the first (latest) message
-          console.log('Latest message:', latestMessage);
-          setMessages([latestMessage]);
-          // saveToBackend(latestMessage); // Save the latest message to the backend
-        } else {
-          setMessages([]);
-        }
+        const debitedAmounts = [];
+
+        parsedSmsList.forEach(message => {
+          const debitedAmount = extractDebitedAmount(message.body);
+          if (debitedAmount !== null) {
+            debitedAmounts.push(debitedAmount);
+          }
+        });
+        setAmt(debitedAmounts);
+        console.log('Debited Amounts:', debitedAmounts);
+
+        // Update state with debited amounts
+        setMessages(parsedSmsList);
       },
     );
   };
 
+  // Function to extract debited amount from the message body
+  const extractDebitedAmount = (body) => {
+    const amountRegex = /(?:Rs\.|INR)\s+(\d+\.\d{2})/;
+    const match = body.match(amountRegex);
+    return match ? parseFloat(match[1]) : null;
+  };
+
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'black' }}>
       <Text style={{ fontSize: 20, textAlign: 'center', marginBottom: 20 }}>SMS Reader App</Text>
       {messages.length > 0 ? (
         <FlatList
@@ -93,6 +106,23 @@ const SmsReq = () => {
         <Text>No messages</Text>
       )}
     </View>
+     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'black' }}>
+     <Text style={{ fontSize: 20, textAlign: 'center', marginBottom: 20 }}>SMS Reader App</Text>
+     {amt.length > 0 ? (
+       <FlatList
+         data={amt}
+         keyExtractor={(item, index) => index.toString()}
+         renderItem={({ item }) => (
+           <View style={{ borderBottomWidth: 1, paddingVertical: 10 }}>
+             <Text style={{ color: 'white' }}>Amount: {item}</Text>
+           </View>
+         )}
+       />
+     ) : (
+       <Text>No debited amounts</Text>
+     )}
+   </View>
+   </>
   );
 };
 
