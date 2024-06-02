@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -7,8 +7,8 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import {useNavigation} from '@react-navigation/native';
+import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const HomePage = () => {
@@ -31,6 +31,7 @@ const HomePage = () => {
               source={{
                 uri: 'https://images.unsplash.com/photo-1520626337972-ebf863448db6',
               }}
+              // source={require('../components/assets/Cart.png')}
             />
           </TouchableOpacity>
 
@@ -39,6 +40,15 @@ const HomePage = () => {
               Hello, <Text style={styles.title2}>Banda Aakash</Text>
             </Text>
           </View>
+
+          <TouchableOpacity
+            style={styles.profilePicContainer}
+            onPress={() => navigation.navigate('ProfilePage')}>
+            <Image
+              style={styles.profilePic}
+              source={require('../components/assets/Cart.png')}
+            />
+          </TouchableOpacity>
         </View>
 
         <View style={styles.balanceContainer}>
@@ -62,7 +72,7 @@ const HomePage = () => {
             <Text style={styles.font}>Gold</Text>
             <Text>
               Start investing in{' '}
-              <Text style={{ fontWeight: 'bold', color: 'gold' }}>Gold</Text> with
+              <Text style={{fontWeight: 'bold', color: 'gold'}}>Gold</Text> with
               a minimum of ₹10
             </Text>
           </TouchableOpacity>
@@ -73,15 +83,34 @@ const HomePage = () => {
               console.log('Mutual Funds');
             }}>
             <Image
+              // source={require('../components/assets/Bank2.png')}
               source={require('../components/assets/money.png')}
               style={styles.image}></Image>
             <Text style={styles.font}>Mutual Funds</Text>
             <Text>
               Start investing in{' '}
-              <Text style={{ fontWeight: 'bold', color: 'gold' }}>
+              <Text style={{fontWeight: 'bold', color: 'gold'}}>
                 Mutual Funds
               </Text>{' '}
               with a minimum of ₹10
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.statsContainer}>
+          <TouchableOpacity
+            style={styles.statBox}
+            onPress={() => {
+              console.log('P2P');
+            }}>
+            <Image
+              source={require('../components/assets/P2P.png')}
+              style={styles.image}></Image>
+            <Text style={styles.font}>P2P</Text>
+            <Text>
+              Start investing in{' '}
+              <Text style={{fontWeight: 'bold', color: 'gold'}}>P2P</Text> with
+              a minimum of ₹10
             </Text>
           </TouchableOpacity>
         </View>
@@ -95,7 +124,7 @@ const HomePage = () => {
               console.log('Expenses');
             }}>
             <Image
-              source={require('../components/assets/gold.png')}
+              source={require('../components/assets/Announcements.png')}
               style={styles.image}></Image>
             <Text style={styles.font2}>Expenses</Text>
           </TouchableOpacity>
@@ -106,7 +135,7 @@ const HomePage = () => {
               console.log('Gold');
             }}>
             <Image
-              source={require('../components/assets/gold.png')}
+              source={require('../components/assets/Announcement.png')}
               style={styles.image}></Image>
             <Text style={styles.font2}>Gold</Text>
           </TouchableOpacity>
@@ -117,7 +146,7 @@ const HomePage = () => {
               console.log('Mutual Funds');
             }}>
             <Image
-              source={require('../components/assets/money.png')}
+              source={require('../components/assets/P2P.png')}
               style={styles.image}></Image>
             <Text style={styles.font2}>Mutual Funds</Text>
           </TouchableOpacity>
@@ -125,7 +154,10 @@ const HomePage = () => {
 
         <Text style={styles.headings}>Setup Automatic Savings</Text>
 
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.horizontalScrollView}>
+        <ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          style={styles.horizontalScrollView}>
           <View style={styles.horizontalContainer}>
             <TouchableOpacity
               style={styles.statBox3}
@@ -133,7 +165,7 @@ const HomePage = () => {
                 console.log('RoundOff');
               }}>
               <Image
-                source={require('../components/assets/gold.png')}
+                source={require('../components/assets/moneyBag.png')}
                 style={styles.image}></Image>
               <Text style={styles.font3}>Round Off</Text>
             </TouchableOpacity>
@@ -273,7 +305,7 @@ const styles = StyleSheet.create({
   },
   statBox3: {
     width: 120,
-    height:120,
+    height: 120,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     borderWidth: 1,
     borderRadius: 10,
@@ -283,7 +315,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   image: {
-    width: 50,
+    width: 53,
     height: 50,
   },
   font: {
