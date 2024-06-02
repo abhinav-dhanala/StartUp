@@ -124,7 +124,7 @@ const HomePage = () => {
               console.log('Expenses');
             }}>
             <Image
-              source={require('../components/assets/Announcements.png')}
+              source={require('../components/assets/Expenses.png')}
               style={styles.image}></Image>
             <Text style={styles.font2}>Expenses</Text>
           </TouchableOpacity>
@@ -135,9 +135,9 @@ const HomePage = () => {
               console.log('Gold');
             }}>
             <Image
-              source={require('../components/assets/Announcement.png')}
+              source={require('../components/assets/budget.png')}
               style={styles.image}></Image>
-            <Text style={styles.font2}>Gold</Text>
+            <Text style={styles.font2}>   Goal Savings</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -146,9 +146,9 @@ const HomePage = () => {
               console.log('Mutual Funds');
             }}>
             <Image
-              source={require('../components/assets/P2P.png')}
+              source={require('../components/assets/calculator.png')}
               style={styles.image}></Image>
-            <Text style={styles.font2}>Mutual Funds</Text>
+            <Text style={styles.font2}>      SIP Calculator</Text>
           </TouchableOpacity>
         </View>
 
@@ -176,7 +176,7 @@ const HomePage = () => {
                 console.log('Daily');
               }}>
               <Image
-                source={require('../components/assets/gold.png')}
+                source={require('../components/assets/daily.png')}
                 style={styles.image}></Image>
               <Text style={styles.font3}>Daily Savings</Text>
             </TouchableOpacity>
@@ -187,7 +187,7 @@ const HomePage = () => {
                 console.log('Weekly');
               }}>
               <Image
-                source={require('../components/assets/money.png')}
+                source={require('../components/assets/week.png')}
                 style={styles.image}></Image>
               <Text style={styles.font3}>Weekly Savings</Text>
             </TouchableOpacity>
@@ -198,7 +198,7 @@ const HomePage = () => {
                 console.log('Monthly');
               }}>
               <Image
-                source={require('../components/assets/money.png')}
+                source={require('../components/assets/monthly.png')}
                 style={styles.image}></Image>
               <Text style={styles.font3}>Monthly Savings</Text>
             </TouchableOpacity>
@@ -278,6 +278,7 @@ const styles = StyleSheet.create({
   statsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginTop:0,
     margin: 16,
   },
   horizontalContainer: {
@@ -339,6 +340,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '500',
     marginLeft: 20,
+    marginBottom: 20,
+
   },
   button: {
     width: '100%',
